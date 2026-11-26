@@ -10,7 +10,7 @@ Game thư giãn 3D, bốn mùa, tiếng Việt và English. Bản v11 hỗ trợ
 
 ## Đưa lên GitHub
 
-Tạo repository trống `Cay_Uoc_Nguyen` tại https://github.com/new thuộc tài khoản `laichaoyi`. Có thể đặt Private và cấp Render quyền đọc repository. Không chọn khởi tạo README hoặc .gitignore vì đã có sẵn.
+Tạo repository trống `Cay_Uoc_Nguyen` tại https://github.com/new thuộc tài khoản '[CỦA BẠN]'. Có thể đặt Private và cấp Render quyền đọc repository. Không chọn khởi tạo README hoặc .gitignore vì đã có sẵn.
 
 Mở PowerShell tại thư mục dự án, ngang hàng với `package.json`:
 
@@ -18,11 +18,11 @@ Mở PowerShell tại thư mục dự án, ngang hàng với `package.json`:
 git init -b main
 git add .
 git commit -m "Wishing Tree v11 - shared wishes"
-git remote add origin https://github.com/laichaoyi/Cay_Uoc_Nguyen.git
+git remote add origin https://github.com/'[tên Tài Khoản CỦA BẠN]'/Cay_Uoc_Nguyen.git
 git push -u origin main
 ```
 
-Nếu đã có `origin`, dùng `git remote set-url origin https://github.com/laichaoyi/Cay_Uoc_Nguyen.git`. Nếu đã có repo/commit, giữ lịch sử và chỉ commit các thay đổi mới. Không đẩy `.env`, khóa Supabase hoặc thư mục `.data` lên GitHub.
+Nếu đã có `origin`, dùng `git remote set-url origin https://github.com/'[Tài Khoản CỦA BẠN]'/Cay_Uoc_Nguyen.git`. Nếu đã có repo/commit, giữ lịch sử và chỉ commit các thay đổi mới. Không đẩy `.env`, khóa Supabase hoặc thư mục `.data` lên GitHub.
 
 ## Tạo database miễn phí trên Supabase
 
@@ -34,7 +34,7 @@ Nếu đã có `origin`, dùng `git remote set-url origin https://github.com/lai
 ## Triển khai Render Free Web Service
 
 1. Vào https://dashboard.render.com, kết nối tài khoản GitHub.
-2. Chọn New → Web Service, chọn `laichaoyi/Cay_Uoc_Nguyen` (branch `main`).
+2. Chọn New → Web Service, chọn `'[Tài Khoản h githhub CỦA BẠN]'/Cay_Uoc_Nguyen` (branch `main`).
 3. Thiết lập Name `cay-uoc-nguyen`, Runtime Node, Instance Type Free, Build Command `npm ci`, Start Command `npm start`, Health Check Path `/health`.
 4. Thêm các Environment Variables:
 
@@ -61,12 +61,7 @@ git push
 
 Render mặc định tự deploy bản commit mới khi kết nối branch main và bật Auto-Deploy. Biến môi trường và database giữ nguyên qua lần cập nhật.
 
-## Tài liệu chính thức
 
-- [Render Free](https://render.com/docs/free) · [Render Web Services](https://render.com/docs/web-services)
-- [Supabase API keys](https://supabase.com/docs/guides/getting-started/api-keys) · [Supabase Free project pausing](https://supabase.com/docs/guides/platform/free-project-pausing)
-- [GitHub: Adding locally hosted code](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
+## Liên hệ tác giả: 
 
-## Nguồn gốc và ghi công
-
-Bản Việt hóa và chức năng bổ sung từ các tệp Treegazing do người dùng cung cấp. Ghi công thư viện trong `app.js`, ghi công mô hình biển gỗ và âm thanh trong `README_VI.txt`.
+Andy Le : me@andyle.one - Facebook: facebook.com/ndle2
