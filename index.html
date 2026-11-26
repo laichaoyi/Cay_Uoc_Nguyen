@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="vi_VN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <style>
   :root {
     /* one world, one theme: ink over a living picture. Layout: everything hugs the lower-left; the tree owns the rest. */
@@ -81,8 +81,7 @@
   /* the notice is for a device held in the hand, whatever the width of the window (the page says which: body.touch, body.phone) */
   body:not(.touch) #desktopNotice { display: none !important; }
   body.touch #desktopNotice { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border: 1px solid rgba(207, 227, 164, .55); border-left: 3px solid var(--leaf); background: rgba(8, 18, 10, .86); border-radius: 4px; cursor: default; max-width: 520px; }
-  /* a phone looks, and is sent to a computer: nothing to press that would let it in */
-  body.phone #sit, body.phone #who { display: none; }
+  body.phone #desktopCopy { display: none; }
   /* what one is called: asked here, on the first screen, in one's own hand */
   #who { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; font-size: 15px; letter-spacing: 0.16em; color: var(--ink-soft); text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8); }
   #who span { flex: 1 1 100%; transition: color .3s; }
@@ -92,13 +91,12 @@
   #who.ask span { color: #ffe2a0; } #who.ask input { border-bottom-color: #ffe2a0; box-shadow: 0 10px 14px -12px rgba(255, 226, 160, 0.7); }
   #who.nudge { animation: whoNudge .45s ease; }
   /* the meadow is full: said under the name, in the colour of the tree's own asking */
-  #door { display: none; max-width: 25em; font-size: 14px; letter-spacing: 0.12em; line-height: 1.8; color: #ffe2a0; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8); } #door.show { display: block; } body.phone #door { display: none; }
+  #door { display: none; max-width: 25em; font-size: 14px; letter-spacing: 0.12em; line-height: 1.8; color: #ffe2a0; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8); } #door.show { display: block; }
   html:is([lang="en"], [lang="vi"]) #door { font-family: var(--latin); font-size: 17px; letter-spacing: 0.02em; line-height: 1.55; }
   #sit:disabled { cursor: default; }
   @keyframes whoNudge { 0%, 100% { transform: none; } 25% { transform: translateX(-5px); } 60% { transform: translateX(4px); } }
   html:is([lang="en"], [lang="vi"]) #who { font-family: var(--latin); font-size: 18px; letter-spacing: 0.03em; } html:is([lang="en"], [lang="vi"]) #who input { letter-spacing: 0.04em; }
   body.phone #intro { cursor: default; }
-  body.phone #intro .fine { font-size: 0; } body.phone #intro .fine button { font-size: 12px; }
   @media (max-width: 600px), (pointer: coarse) {
     #intro { overflow-y: auto; }
     #intro .col, html:is([lang="en"], [lang="vi"]) #intro .col { flex-direction: column; align-items: flex-start; margin-top: auto; width: 100%; gap: 20px; }
@@ -546,6 +544,25 @@
 <style>html[lang="vi"] #title{letter-spacing:.015em;font-size:clamp(38px,5.6vw,78px)} #title{overflow-wrap:normal} #intro h1::before{content:"";display:block;width:clamp(48px,6vw,76px);height:clamp(48px,6vw,76px);margin-bottom:12px;background:url(tree.png) center/contain no-repeat} html[lang="vi"] #wishText{font-size:27px}</style>
 <style>html[lang="vi"] #hud,html[lang="vi"] #hud button,html[lang="vi"] #cap,html[lang="vi"] #treeSay,html[lang="vi"] #wish,html[lang="vi"] #wishText,html[lang="vi"] #wishRead{letter-spacing:normal}</style>
 <style>#seasonSelect{font:inherit;color:var(--ink);background:rgba(12,21,18,.65);border:1px solid rgba(240,242,226,.28);border-radius:6px;padding:5px 8px;cursor:pointer;max-width:9em}#seasonSelect option{background:#202821;color:#f0f2e6}#seasonSelect:focus-visible{outline:1px solid #dce7c8}body.live:not(.bare) #hud:focus-within{opacity:1;pointer-events:auto}</style>
+<style>
+@media (max-width: 600px), (pointer: coarse) {
+  #intro { align-items: flex-start; }
+  #intro .col, html:is([lang="en"],[lang="vi"]) #intro .col { gap: 12px; margin-top: auto; }
+  #intro .side { gap: 10px; }
+  #intro h1::before { width: 44px; height: 44px; margin-bottom: 8px; }
+  body.phone #desktopNotice { padding: 8px 10px; }
+  body.phone #desktopTitle { font-size: 16px; }
+  body.phone #desktopDetail { font-size: 14px; }
+  #hud { padding-top: 16px; gap: 3px 10px; }
+  #hud .grp { gap: 0 13px; }
+  #hud button { min-height: 40px; }
+  body.live.touch:not(.bare) #hud { opacity: 1; pointer-events: auto; }
+  #wish.show { max-height: calc(100dvh - env(safe-area-inset-top)); overflow-y: auto; padding-top: 12px; padding-bottom: max(12px, env(safe-area-inset-bottom)); background: rgba(8,12,10,.85); pointer-events: auto; }
+  #wishSaid { font-size: 20px; margin-bottom: 2px; }
+  html[lang="vi"] #wishText { font-size: 22px; }
+  #whoName, #wishName { font-size: max(16px, 1em); }
+}
+</style>
 </head>
 <body>
 <canvas id="c"></canvas>
