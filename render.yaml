@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cay-uoc-nguyen
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: WISH_REQUIRE_DB
+        value: '1'
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false

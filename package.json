@@ -1,0 +1,8 @@
+{
+  "name": "cay-uoc-nguyen",
+  "version": "11.0.0",
+  "private": true,
+  "description": "Cây ước nguyện / Wishing Tree - Vietnamese and English",
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node dev-server.cjs" }
+}
